@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #d3d3d3; /* Light gray background */
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #0077cc;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for readability */
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Floating effect */
+}
+
+button {
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px;
+    transition: transform 0.1s ease, background-color 0.3s ease; /* Smooth transitions */
+}
+
+button:hover {
+    background-color: #005fa3;
+}
+
+button:focus {
+    outline: 2px solid #005fa3;
+    outline-offset: 2px;
+}
+
+button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Feedback on click */
+}
+
+.game-info {
+    margin: 20px 0;
+    font-size: 18px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for readability */
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: 500; /* Moderate weight */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Floating effect */
+}
+
+#score {
+    font-size: 24px;
+    color: #333;
+}
+
+#timer {
+    font-size: 24px;
+    color: #d9534f; /* Red for urgency */
+}
+
+#countdown {
+    font-size: 24px;
+    color: #f0ad4e; /* Orange for attention */
+    margin-top: 10px;
+}
+
+#highscore {
+    font-size: 20px;
+    color: #5cb85c; /* Green for positive reinforcement */
+    margin-top: 10px;
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+    h1 {
+        font-size: 24px;
+        padding: 8px 16px;
+    }
+    .game-info {
+        font-size: 16px;
+    }
+}
+.tableauPlaceholder {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }

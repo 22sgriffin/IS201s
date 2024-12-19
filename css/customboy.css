@@ -1,0 +1,13 @@
+h3 {
+    font-family: calibri;
+    font-size: medium;
+}
+h1 {
+    font-size: medium;
+}
+.image-buffer {
+    margin: 15px;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px; /* Optional, adds rounded corners */
+}

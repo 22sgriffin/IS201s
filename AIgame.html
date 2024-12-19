@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Game</title>
+    <link rel="stylesheet" href="/css/styles2.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav style="background-color: #333; padding: 10px;">
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; justify-content: center;">
+            <li style="margin: 0 15px;"><a style="color: white; text-decoration: none;" href="index.html">Home</a></li>
+            <li style="margin: 0 15px;"><a style="color: white; text-decoration: none;" href="about.html">Mission</a></li>
+            <li style="margin: 0 15px;"><a style="color: white; text-decoration: none;" href="post.html">Hobbies</a></li>
+            <li style="margin: 0 15px;"><a style="color: white; text-decoration: none;" href="AIgame.html">AI Game</a></li>
+            <li style="margin: 0 15px;"><a style="color: white; text-decoration: none;" href="resume.html">Resume</a></li>
+            <li style="margin: 0 15px;"><a style="color: white; text-decoration: none;" href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Game Content -->
+    <h1>Click the Button Challenge</h1>
+    <p class="game-info">Click the button as many times as you can in <span id="timer">10</span> seconds!</p>
+    <p class="game-info" id="countdown">Get ready!</p>
+    <button id="gameButton" disabled>Click Me!</button>
+    <p>Your Score: <span id="score">0</span></p>
+    <p id="highscore">High Score: <span id="highScoreValue">0</span></p>
+    <button id="startButton">Start Game</button>
+
+    <script>
+        // Variables
+        let score = 0;
+        let highScore = 0;
+        let timeLeft = 10;
+        let prepTime = 3; // Countdown time before game starts
+        let timer;
+        let gameButton = document.getElementById("gameButton");
+        let startButton = document.getElementById("startButton");
+        let scoreDisplay = document.getElementById("score");
+        let timerDisplay = document.getElementById("timer");
+        let countdownDisplay = document.getElementById("countdown");
+        let highScoreDisplay = document.getElementById("highScoreValue");
+
+        // Start Game Function
+        startButton.addEventListener("click", function() {
+            score = 0; // Reset score
+            timeLeft = 10; // Reset timer
+            prepTime = 3; // Reset prep time
+            scoreDisplay.textContent = score;
+            timerDisplay.textContent = timeLeft;
+            countdownDisplay.textContent = "Get ready!";
+            gameButton.disabled = true; // Keep game button disabled during countdown
+            startButton.disabled = true; // Disable start button during game
+
+            // Pre-game Countdown
+            let prepTimer = setInterval(function() {
+                countdownDisplay.textContent = prepTime > 0 ? prepTime : "Go!";
+                prepTime--;
+                if (prepTime < 0) {
+                    clearInterval(prepTimer);
+                    countdownDisplay.textContent = ""; // Clear the countdown message
+                    startGameTimer(); // Start the main game timer
+                    gameButton.disabled = false; // Enable game button
+                }
+            }, 1000);
+        });
+
+        // Main Game Timer Function
+        function startGameTimer() {
+            timer = setInterval(function() {
+                timeLeft--;
+                timerDisplay.textContent = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    gameButton.disabled = true; // Disable game button
+                    startButton.disabled = false; // Enable start button
+                    updateHighScore();
+                    alert(`Time's up! Your final score is ${score}.`);
+                }
+            }, 1000);
+        }
+
+        // Increment Score on Button Click
+        gameButton.addEventListener("click", function() {
+            score++;
+            scoreDisplay.textContent = score;
+        });
+
+        // Update High Score
+        function updateHighScore() {
+            if (score > highScore) {
+                highScore = score;
+                highScoreDisplay.textContent = highScore;
+            }
+        }
+    </script>
+</body>
+</html>
+
